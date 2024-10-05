@@ -1,0 +1,256 @@
+﻿<Page x:Class="에누링.View.AuctionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:에누링.View"
+      xmlns:vm="clr-namespace:에누링.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuctionPage">
+
+    <Page.Resources>
+        <vm:PriceVM x:Key="pvm"/>
+    </Page.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border CornerRadius="10" 
+                    Grid.ColumnSpan="10"
+                    Grid.RowSpan="11">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#f083da" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Button
+                Command="{Binding Source={StaticResource vm},
+                            Path=PageNavigateCommand}"
+                CommandParameter="Back"
+                Content="Back"
+                Background="#FF958FF9"
+                Opacity="0.8"
+                Foreground="Snow"
+           
+                />
+           
+            <TextBlock Text="제품명"
+                       FontSize="30"
+                       HorizontalAlignment="Center"
+                       Grid.ColumnSpan="5"
+                       Grid.Column="1"/>
+            <Grid Grid.Row="1"
+                  Grid.ColumnSpan="4"
+                  Grid.RowSpan="4 "
+
+                  >
+                <Image Source="/Resources/c++책.png"
+                   Stretch="Fill"/>
+
+            </Grid>
+            <TextBlock Text="판매희망 금액 :"
+                   Grid.Row="5"
+                       Grid.ColumnSpan="2"
+                   FontWeight="DemiBold"
+                   FontSize="30"        
+                   Foreground="White"
+                   Background="Transparent"
+                       HorizontalAlignment="Stretch"
+                    >
+            </TextBlock>
+            <TextBlock Grid.Row="5"
+                       Grid.Column="2"
+                       x:Name="ProductPrice"
+                       FontSize="30"
+                       Foreground="Gold"/>
+            <TextBlock Text="품질"
+                       Grid.Row="6"
+                       FontWeight="DemiBold"
+                       FontSize="30"
+                       Foreground="White"
+                       HorizontalAlignment="Right">
+            </TextBlock>
+            <TextBlock Grid.Row="6"
+                       Grid.Column="1"
+                       FontSize="30"
+                       Foreground="White"
+                       x:Name="ProductQuality"
+                       HorizontalAlignment="Center">
+            </TextBlock>
+            <TextBlock Text="개봉여부"
+                       Grid.Row="7"
+                       FontWeight="DemiBold"
+                       FontSize="30"
+                       Foreground="White"
+                       HorizontalAlignment="Right">
+
+            </TextBlock>
+            <TextBlock Grid.Row="7"
+                       Grid.Column="1"
+                       FontSize="30"
+                       Foreground="White"
+                       x:Name="ProductOpen"
+                       HorizontalAlignment="Center">
+            </TextBlock>
+            <TextBlock Text="거래방법"
+                       Grid.Row="8"
+                       FontWeight="DemiBold"
+                       FontSize="30"
+                       Foreground="White"
+                       HorizontalAlignment="Right">
+            </TextBlock>
+            <TextBlock Grid.Row="8"
+                       Grid.Column="1"
+                       FontSize="30"
+                       Foreground="White"
+                       x:Name="ProductDeal"
+                       HorizontalAlignment="Center">
+            </TextBlock>
+            <StackPanel Grid.Column="2"
+                    Grid.Row="5">
+                <TextBlock  HorizontalAlignment="Right"               
+                            Background="Transparent"               
+                            FontSize="30"
+                            FontWeight="Light"
+                            Foreground="White">
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Text="원"
+                   Grid.Column="3"
+                   Grid.Row="5"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   Foreground="White"
+                   HorizontalAlignment="Left">
+            </TextBlock>
+            <TextBlock Text="경매마감: "
+                       Grid.Row="9"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       >
+
+            </TextBlock>
+            <TextBlock Grid.Row="9"
+                       Grid.Column="1" 
+                       FontSize="28"
+                       Foreground="White"
+                       x:Name="Endtime">
+
+            </TextBlock>
+            <TextBlock Grid.Row="10"
+                       Grid.ColumnSpan="1"
+                       Text="직거래 장소: "
+                       Foreground="White"
+                       FontSize="25"
+                       HorizontalAlignment="Right"
+                       >
+            </TextBlock>
+            <TextBlock Grid.Row="10"
+                       Grid.Column="1"
+                       FontSize="30"
+                       Foreground="White"
+                       x:Name="DealPlace"
+                       HorizontalAlignment="Left"/>
+
+
+            <TextBlock Grid.Column="4"
+                       Background="#FF9197E0"
+                       Opacity="0.7"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Grid.RowSpan="7"
+                       FontSize="30"
+                       Foreground="Black"
+                       x:Name="ProductExplain"                 
+                  TextWrapping="WrapWithOverflow">
+            </TextBlock>
+            <ListView Grid.Column="6"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="4"
+                      Grid.RowSpan="5"
+                      Background="Transparent"
+                      ItemsSource="{Binding Source={StaticResource pvm}, Path=Price}">
+            </ListView>
+            <TextBlock Text="구매가격: "
+                       Grid.Column="6"
+                       Grid.Row="6"
+                       Grid.RowSpan="2"
+                       Foreground="White"
+                       FontSize="15"
+                       VerticalAlignment="Center">
+
+            </TextBlock>
+            <TextBox Grid.Column="7"
+                       Grid.Row="6"
+                       Grid.RowSpan="2"
+                       x:Name="price"
+                       
+                       Foreground="White"
+                       FontSize="20"
+                       VerticalAlignment="Center"
+                      Background="Transparent"
+                     >
+            </TextBox>
+            <TextBlock Grid.Column="8"
+                       Grid.Row="6"
+                       Grid.RowSpan="2"
+                       Text="원"
+                       
+                       FontSize="25"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left">
+            </TextBlock>
+            <TextBlock Text="※최소 입력단위는 천원입니다"
+                       Foreground="White"
+                       FontSize="23"
+                       Grid.Column="6" 
+                       Grid.Row="8"
+                       Grid.ColumnSpan="4">
+            </TextBlock>
+            <Button Grid.Column="9"
+                    Grid.Row="6"
+                    Grid.RowSpan="2"
+                    Content="등록"
+                    Command="{Binding Source={StaticResource pvm}, Path=PriceCommand}"
+                    CommandParameter="{Binding ElementName=price}" />
+
+            <TextBlock Text="보유코인: 10,000,000 원"
+                       Grid.Column="6"
+                       Grid.Row="10"
+                       Grid.ColumnSpan="4"
+                       FontSize="29"
+                       Foreground="White"
+                       >
+
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,18 @@
+﻿<Window x:Class="에누링.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:에누링"
+        xmlns:vm="clr-namespace:에누링.ViewModel"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="400"
+         WindowState="Maximized" ResizeMode="NoResize" >
+
+    <Grid>
+        <Frame x:Name="PageFrame"
+               Source="View/Login.xaml"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+  </Window>

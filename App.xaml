@@ -1,0 +1,13 @@
+﻿<Application x:Class="에누링.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:에누링"
+             xmlns:vm="clr-namespace:에누링.ViewModel"
+             xmlns:as="clr-namespace:에누링.ViewModel.Command"
+             
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <vm:PageNavigateVM x:Key="vm"/>
+     </Application.Resources>
+    
+</Application>

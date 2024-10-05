@@ -1,0 +1,271 @@
+﻿<Page x:Class="에누링.View.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:에누링.View"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:ts="clr-namespace:에누링.ViewModel"
+      xmlns:mybtncommand="clr-namespace:에누링.ViewModel.Command"
+      mc:Ignorable="d" 
+     d:DesignHeight="1200" d:DesignWidth="1900"
+      Title="Page1">
+    <Page.Resources>
+        <mybtncommand:OpenImageCommand x:Key="btnc"/>
+        <mybtncommand:kakaomapbutton x:Key="kmbt"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <ts:PageNavigateVM/>
+
+    </Page.DataContext>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="10" 
+                Grid.RowSpan="7"
+                Grid.ColumnSpan="8">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7be9f6" Offset="0.0"/>
+                    <GradientStop Color="#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid  Grid.Column="1"
+               Grid.ColumnSpan="3"
+               Grid.RowSpan="3"
+               Background="White">
+        </Grid>
+
+        <TextBlock Text="판매희망 금액 :"
+                   Grid.Row="3"
+                   FontWeight="DemiBold"
+                   FontSize="30"        
+                   Foreground="White"
+                   Background="Transparent">
+        </TextBlock>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="3">
+            <TextBox  MaxLength="9"
+                    Text="{Binding MyPrice, Source={StaticResource vm}}"
+                    HorizontalAlignment="Right"               
+                    Background="Transparent"               
+                    FontSize="30"
+                    FontWeight="Light"
+                    Foreground="White">
+            </TextBox>
+            <Border   Width="150"
+                    Height="2"
+                    Background="White"
+                    Opacity="1"
+                      Margin="170,0,0,0"/>
+        </StackPanel>
+
+        <TextBlock Text="원"
+                   Grid.Column="2"
+                   Grid.Row="3"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   Foreground="White"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <TextBlock Text="경매종료일: "
+                   Grid.Row="4"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   Foreground="White"
+                   Background="Transparent"
+                   HorizontalAlignment="Right"  >
+        </TextBlock>
+        <TextBlock Text="물품설명: "
+                   Grid.Row="5"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   Foreground="White"
+                   Background="Transparent"
+                   HorizontalAlignment="Right"
+                   >
+        </TextBlock>
+        <TextBox   
+                  HorizontalAlignment="Left"    
+                  Text="{Binding MyExplan, Source={StaticResource vm}}"    
+                  Background="Transparent"               
+                  FontSize="25"
+                  FontWeight="Light"
+                  Foreground="White"
+                  Grid.Column="1"
+                  Grid.Row="5"
+                  Grid.ColumnSpan="2"
+                  AcceptsReturn="True" AcceptsTab="True" 
+                  TextWrapping="WrapWithOverflow"
+                  x:Name="ProductExplain">
+        </TextBox>
+        <TextBlock Text="제품명: "
+                   Grid.Row="6"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   Foreground="White"
+                   Background="Transparent"
+                   HorizontalAlignment="Right"
+                  
+                   >
+        </TextBlock>
+        <TextBox   
+                  HorizontalAlignment="Left"   
+                  Text="{Binding MyName, Source={StaticResource vm}}"
+                  Background="Transparent"               
+                  FontSize="25"
+                  FontWeight="Light"
+                  Foreground="White"
+                  Grid.Column="1"
+                  Grid.Row="6"
+                  Grid.ColumnSpan="2"
+                  AcceptsReturn="True" AcceptsTab="True" 
+                  TextWrapping="WrapWithOverflow"
+            >
+
+        </TextBox>
+            <TextBlock Text="품질"
+                   Grid.Column="4"
+                   Grid.Row="4"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   Foreground="White">
+
+        </TextBlock>
+        <TextBlock Text="개봉여부"
+                   Grid.Column="5"
+                   Grid.Row="4"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   Foreground="White">
+        </TextBlock>
+        <TextBlock Text="거래방법"
+                   Grid.Column="6"
+                   Grid.Row="4"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   Foreground="White">
+        </TextBlock>
+
+        <GroupBox Grid.Column="4"
+                  Grid.Row="5"
+                  Grid.RowSpan="2"
+                  >
+            <StackPanel >
+
+                <RadioButton Content="상" Tag="1" Margin="0,0,0,30"  FontSize="25" Checked="RadioButton_Checked"/>
+                <RadioButton Content="중" Tag="2"  Margin="0,0,0,30" FontSize="25" Checked="RadioButton_Checked_1"/>
+                <RadioButton Content="하" Tag="3"  Margin="0,0,0,30" FontSize="25" Checked="RadioButton_Checked_2"/>
+
+            </StackPanel>
+
+        </GroupBox>
+
+        <GroupBox Grid.Column="5"
+                  Grid.Row="5"
+                  Grid.RowSpan="2"
+                  >
+            <StackPanel >
+                <RadioButton Content="개봉" Tag="1" Margin="0,0,0,30"  FontSize="25" Checked="RadioButton_Checked_3"/>
+                <RadioButton Content="미개봉" Tag="2"  Margin="0,0,0,30" FontSize="25" Checked="RadioButton_Checked_4"/>
+            </StackPanel>
+
+
+        </GroupBox>
+        <GroupBox Grid.Column="6"
+                  Grid.Row="5"
+                  Grid.RowSpan="3"
+                  >
+            <StackPanel >
+                <RadioButton Content="택배" Tag="1" Margin="0,0,0,30"  FontSize="25" Checked="RadioButton_Checked_5"/>
+                <RadioButton Content="직거래" Tag="2"  Margin="0,0,0,30" FontSize="25" Checked="RadioButton_Checked_6"/>
+            </StackPanel>
+
+        </GroupBox>
+        <Button Grid.Column="7"
+                Grid.Row="5"
+                Grid.RowSpan="2"
+                Content="등록"
+                Command="{Binding Source={StaticResource vm}, 
+                            Path=PageNavigateCommand}"
+                            CommandParameter="Ok">
+        </Button>
+
+        <StackPanel
+            Grid.Column="1"
+                       Grid.Row="4"
+            Grid.ColumnSpan="2"
+            >
+            <DatePicker Width="300" Height="50" SelectedDate="{Binding SelectedDateTime}"                 
+                        VerticalAlignment="Top"
+                        FontSize="30"
+                        Background="Transparent"/>
+            <TextBlock  Text="{Binding SelectedDateTime, StringFormat='{}선택된 날짜: {0:yyyy/MM/dd}'}"                  
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontSize="30"
+                        Foreground="White"
+                     />
+
+        </StackPanel>
+        <Button 
+                   
+                  FontSize="30"
+                  Content="Back"
+                 Command="{Binding Source={StaticResource vm},
+                 Path=PageNavigateCommand}"
+                CommandParameter="Back"
+                Background="#FF958FF9"
+                Opacity="0.8"
+                Foreground="Snow"/>
+        <Button  FontSize="30"
+                Grid.Row="2"
+                Content="이미지선택"
+                Command="{Binding Source={StaticResource btnc}}"
+                CommandParameter="{Binding ElementName=image}" 
+               />
+        <Image x:Name="image" 
+               Grid.ColumnSpan="3"
+               Grid.RowSpan="3"
+               Stretch="Fill"
+               Grid.Column="1"/>
+
+        <Button Grid.Row="0"
+                Grid.Column="4"
+                Grid.ColumnSpan="4"
+                Grid.RowSpan="3"
+                Command="{Binding Source={StaticResource kmbt}}">
+            <Image Source="/Resources/직거래장소선택.png"
+                   Stretch="Fill"/>
+        </Button>
+
+
+    </Grid>
+</Page>
